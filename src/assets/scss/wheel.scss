@@ -1,0 +1,149 @@
+.wheel-container {
+    position: relative;
+    overflow:hidden;
+    &__wheel {
+        position: relative;
+        width: 560px;
+        height: 560px;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 50%;
+        transform: rotate(0deg);
+        transition: transform 0.7s linear;
+        margin-top: 200px;
+        margin-left:200px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__wheel-pivot {
+        position: absolute;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        transform: rotate(0deg);
+        transition: transform 0.7s linear;
+        top:100px;
+        left:480px;
+    }
+    &__buttons {
+        position:relative;
+        height:100px;
+    }
+    &__button-next {
+        position: absolute;
+        background-repeat: no-repeat;
+        height:50px;
+        width:80px;
+        display:inline-block;
+        right:0;
+    }
+    &__button-prev {
+        position: absolute;
+        background-repeat: no-repeat;
+        height:50px;
+        width:80px;
+        display:inline-block;
+        left:100px;
+    }
+}
+
+.orange {
+    background-image:url();
+}
+
+.green {
+    
+}
+
+.child {
+	position: absolute;
+	transform: rotate(0deg);
+	transition: transform 0.7s linear;
+	width:200px;
+	height:200px;
+	background-repeat: no-repeat;
+	background:center;
+	border-radius:50%;
+}
+
+.center-img {
+	position:absolute;
+}
+
+.displaySmall {
+	display:none;
+}
+
+.fadeOut {
+	animation: fade ease-out .3s;
+}
+
+.fadeIn {
+	animation: fadein ease-in .3s;
+}
+
+.fadeleftout {
+	animation: fadeleft ease-out .3s;
+}
+
+.fadeleftin {
+	animation: fadeleftin ease-in .3s;
+}
+
+@keyframes fadeleft {
+	0% {
+		opacity:1;
+		zoom: 1;
+	}
+    100% {
+		opacity:0.4;
+		zoom:0.5;
+	}
+}
+
+@keyframes fadeleftin {
+	0% {
+		zoom:0;
+	}
+    100% {
+		zoom: 1;	
+	}
+}
+
+  @keyframes fade {
+	0% {
+		transform: scale(1) rotate(0deg);
+		opacity: 1;
+	}
+    100% {
+		opacity: 0.2;
+		transform: scale(0.6) rotate(-40deg);	
+	}
+  }
+
+  @keyframes fadein {
+	0% {
+		transform: scale(0.6) rotate(40deg);
+		opacity: 0.4;
+	}
+    100% {
+		transform: scale(1) rotate(0deg);
+		opacity:1;
+    }
+  }
+
+
+.child img {
+	max-width: 100%;
+	border-radius: 50%;
+}
+
+.orange {
+	color: orange;
+}
+
+.green {
+	color:green;
+}
+

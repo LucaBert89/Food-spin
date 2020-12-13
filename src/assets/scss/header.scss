@@ -14,7 +14,7 @@
 }
 
 .menu__logo-icon {
-    background-image: url("/assets/images/icons/logo.svg");
+    background-image: url("./assets/images/icons/logo.svg");
     background-size: inherit;
     width:16px;
     height:15px;
@@ -47,7 +47,14 @@
 }
 
 .menu__icon {
+    background-image:url("./assets/images/icons/shoppingCart.svg");
+    background-repeat: no-repeat;
     justify-self: end;
     align-self: center;
     margin-right:100px;
+    background-size: inherit;
+    width:24px;
+    height:24px;
+    background-repeat: no-repeat;
+    display:inline-grid;
 }
