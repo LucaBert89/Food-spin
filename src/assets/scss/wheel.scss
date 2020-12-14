@@ -36,7 +36,7 @@
         height:50px;
         width:80px;
         display:inline-block;
-        right:0;
+        left:750px;
     }
     &__button-prev {
         position: absolute;
@@ -46,14 +46,6 @@
         display:inline-block;
         left:100px;
     }
-}
-
-.orange {
-    background-image:url();
-}
-
-.green {
-    
 }
 
 .child {
