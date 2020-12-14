@@ -84,30 +84,34 @@
 }
 
 .fadeleftout {
-	animation: fadeleft ease-out .3s;
+  animation: fadeleft ease-out .3s;
+  transform-origin: left;
 }
 
 .fadeleftin {
-	animation: fadeleftin ease-in .3s;
+  animation: fadeleftin ease-in .3s;
+  transform-origin: left;
 }
 
 @keyframes fadeleft {
 	0% {
-		opacity:1;
-		zoom: 1;
-	}
+		opacity:1;  
+    transform: scale(1); 
+  }
     100% {
-		opacity:0.4;
-		zoom:0.5;
+		opacity:0.5;
+    transform: scale(0.4);
 	}
 }
 
 @keyframes fadeleftin {
 	0% {
-		zoom:0;
+    opacity:0.5;
+		transform: scale(0.4);
 	}
     100% {
-		zoom: 1;	
+      opacity:1;  
+      transform: scale(1); 	
 	}
 }
 

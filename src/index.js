@@ -35,7 +35,7 @@ bigDishes.classList.add("center-img");
 let price = document.querySelector(".recipe-section__price");
 let recipeTitle = document.querySelector(".recipe-section__title");
 let recipe = document.querySelector(".recipe-section__text");
-let btn = document.querySelector(".recipe-section__btn");
+let btnRecipe = document.querySelector(".recipe-section__btn");
  
 console.log(buttons);
 
@@ -137,9 +137,10 @@ let images = [
             smallDishes.style.transform = `rotate(${degreePosition}deg) translate(${radius}px)`;
             wheelDish.appendChild(smallDishes);
             if(index == 0) {
-                console.log(value.bigImages);
                 bigDishes.src = value.bigImages;
                 center.appendChild(bigDishes);
+                price.style.color = "orange";
+                btnRecipe.style.backgroundColor = "orange";
                 text(value);
             }
             degreePosition += -36;
@@ -180,7 +181,13 @@ function setAnimation(value, e, rotate) {
         textSection.classList.remove("fadeleftout");
         value.classList.remove("fadeOut");
         text(images[i]);
-        
+        if(price.style.color == "orange" && btnRecipe.style.backgroundColor == "orange") {
+            price.style.color = "green";
+            btnRecipe.style.backgroundColor = "green";
+        } else {
+            price.style.color = "orange";
+            btnRecipe.style.backgroundColor = "orange";
+        }
     },300);
     value.src = images[i].bigImages;
     wheelDish.style.transform = `rotate(${rotate}deg)`;
@@ -202,18 +209,7 @@ function text (val) {
     price.innerText = val.price;
     recipeTitle.innerHTML = val.recipeTitle;
     recipe.innerHTML = val.recipe;
-    if(price.className == "orange" && btn.className == "orange") {
-        price.classList.remove("orange");
-        btn.classList.remove("orange");
-        price.classList.add("green");
-        btn.classList.add("green");
-    } else {
-        btn.classList.remove("green");
-        price.classList.remove("green");
-        price.classList.add("orange");
-        btn.classList.add("orange");
-    }
-}
+};
 
 function buttonsColor () {
     let btn = Array.from(buttons);
