@@ -1,3 +1,19 @@
+.background {
+  background-color: #FFEEDE;
+  width:1177px;
+  height: 1177px;
+  border-radius:50%;
+  position:fixed;
+  bottom:25%;
+  left:20%;
+  display:flex;
+  align-items: flex-end;
+  z-index:-1;
+  overflow:hidden;
+  justify-content: center;
+}
+
+
 .wheel-container {
     position: relative;
     overflow:hidden;
@@ -5,30 +21,32 @@
         position: relative;
         width: 560px;
         height: 560px;
-        border: 1px solid rgba(0,0,0,0.1);
+        border: 2px dashed #E87F1E;
         border-radius: 50%;
         transform: rotate(0deg);
         transition: transform 0.7s linear;
         margin-top: 200px;
-        margin-left:200px;
         display:flex;
         align-items: center;
         justify-content: center;
+        top:300px;
     }
     &__wheel-pivot {
-        position: absolute;
+        width:500px;
+        position: relative;
         display:flex;
         align-items: center;
         justify-content: center;
-        height: 100%;
+        height: 600px;
         transform: rotate(0deg);
         transition: transform 0.7s linear;
-        top:100px;
-        left:480px;
+        top:80px;
+        left:170px;
     }
     &__buttons {
-        position:relative;
+        position:absolute;
         height:100px;
+        bottom:15%;
     }
     &__button-next {
         position: absolute;
@@ -36,7 +54,7 @@
         height:50px;
         width:80px;
         display:inline-block;
-        left:750px;
+        left:650px;
     }
     &__button-prev {
         position: absolute;

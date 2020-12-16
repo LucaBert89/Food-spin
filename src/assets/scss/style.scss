@@ -2,10 +2,15 @@
     font-family: "Poppins";
     font-style: normal;
     margin:0;
+    box-sizing:border-box;
+}
+
+body {
+    overflow:hidden;
 }
 
 .margin-center {
-    margin: 0 100px;
+    padding: 0 100px;
 }
 
 :root {

@@ -36,7 +36,8 @@ let price = document.querySelector(".recipe-section__price");
 let recipeTitle = document.querySelector(".recipe-section__title");
 let recipe = document.querySelector(".recipe-section__text");
 let btnRecipe = document.querySelector(".recipe-section__btn");
- 
+const background = document.querySelector(".background");
+ console.log(window.getComputedStyle(background).getPropertyValue("background-color"));
 console.log(buttons);
 
 let circleWidth = window.getComputedStyle(wheelDish).getPropertyValue("width");
@@ -181,12 +182,14 @@ function setAnimation(value, e, rotate) {
         textSection.classList.remove("fadeleftout");
         value.classList.remove("fadeOut");
         text(images[i]);
-        if(price.style.color == "orange" && btnRecipe.style.backgroundColor == "orange") {
+        if(price.style.color == "orange" && btnRecipe.style.backgroundColor == "orange" && window.getComputedStyle(background).getPropertyValue("background-color") == "rgb(255, 238, 222)") {
             price.style.color = "green";
             btnRecipe.style.backgroundColor = "green";
+            background.style.backgroundColor = "green";
         } else {
             price.style.color = "orange";
             btnRecipe.style.backgroundColor = "orange";
+            background.style.backgroundColor ="rgb(255, 238, 222)";
         }
     },300);
     value.src = images[i].bigImages;
@@ -214,7 +217,6 @@ function text (val) {
 function buttonsColor () {
     let btn = Array.from(buttons);
     btn.forEach(function(value) {
-        console.log(value);
         if(value.getAttribute("data-color") == "O") {
             value.style.backgroundImage = `url(${buttonGreen})`
             value.removeAttribute("data-color");
@@ -224,5 +226,4 @@ function buttonsColor () {
         }
         
     })
-    
 }
