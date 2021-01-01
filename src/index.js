@@ -24,38 +24,37 @@ import bigDish9 from "./assets/images/bigdishes/big-dish9.svg";
 import buttonOrange from "./assets/images/buttons/btnOrange.svg"; 
 import buttonGreen from "./assets/images/buttons/btnGreen.svg"; 
 
+
 const wheelDish = document.querySelector(".wheel-container__wheel");
 const center = document.querySelector(".wheel-container__wheel-pivot");
 const buttons = document.querySelector(".wheel-container__buttons").children;
 const btnNext = document.querySelector(".wheel-container__button-next");
 const btnprev = document.querySelector(".wheel-container__button-prev");
 const textSection = document.querySelector(".recipe-section");
-let bigDishes = document.createElement("img");
-bigDishes.classList.add("center-img");
+
 let price = document.querySelector(".recipe-section__price");
 let recipeTitle = document.querySelector(".recipe-section__title");
 let recipe = document.querySelector(".recipe-section__text");
 let btnRecipe = document.querySelector(".recipe-section__btn");
 const background = document.querySelector(".background");
- console.log(window.getComputedStyle(background).getPropertyValue("background-color"));
-console.log(buttons);
-
+let bigDishes = document.createElement("img");
+bigDishes.classList.add("center-img");
+// the width of the wheel and the radius
 let circleWidth = window.getComputedStyle(wheelDish).getPropertyValue("width");
 let radius = parseInt(circleWidth) /2;
 
 let rotationDegree = 0;
 let i = 0;
 
-
 (function init() {
-    btnNext.addEventListener("click", rotation);
-    btnprev.addEventListener("click", prev);
+    btnNext.addEventListener("click", rotationNext);
+    btnprev.addEventListener("click", rotationPrev);
 })();
 
-console.log(window.getComputedStyle(btnNext).getPropertyValue("background-image"))
+
 
 // big images and smallimages of the circle inside an array as they came from a database
-let images = [
+const data = [
         {
             "price": "$32",
             "recipeTitle": "Green Goddess Chicken Salad",
@@ -128,27 +127,33 @@ let images = [
         }
     ]
 
+//drawing the wheel taking as degree Position of the first circle at 85 degrees
     function draw () {
+        console.log(i);
         let degreePosition = -85;
         
-        images.forEach(function(value ,index) {
+        // for each element of the array create a small dish inside the wheel taking the small dish image inside the array
+        data.forEach(function(value ,index) {
             let smallDishes = document.createElement("div");
             smallDishes.classList.add("child");
             smallDishes.style.backgroundImage = value.smallImages;
+            // give to the dish the degree position and translate as the radius to set it on the wheel
             smallDishes.style.transform = `rotate(${degreePosition}deg) translate(${radius}px)`;
             wheelDish.appendChild(smallDishes);
             if(index == 0) {
                 bigDishes.src = value.bigImages;
                 center.appendChild(bigDishes);
-                price.style.color = "orange";
-                btnRecipe.style.backgroundColor = "orange";
+                price.style.color = "#FF922C";
+                btnRecipe.style.backgroundColor = "#FF922C";
                 text(value);
             }
+            // add -36 degree to set the dishes around the wheel with that distance from each others
             degreePosition += -36;
         }
         )
-        for(i = 0; i<buttons.length; i++) {
-            buttons[i].style.backgroundImage = `url(${buttonOrange})`;
+        // give to the buttons the right image as background
+        for(let j = 0; j<buttons.length; j++) {
+            buttons[j].style.backgroundImage = `url(${buttonOrange})`;
         }
     }
 
@@ -157,53 +162,61 @@ let images = [
 
     
 function setAnimation(value, e, rotate) {
+    // remove the fade in animation and add the fade out to make the element disappear
+
     textSection.classList.remove("fadeleftin");
     value.classList.remove("fadeIn");
     textSection.classList.add("fadeleftout");
     value.classList.add("fadeOut");
-    
-    setTimeout(() => {
-        if(e.target.getAttribute("data-slide") == "n") {
-            if(i == images.length-1) {
-                i = 0;
-            } else {
-                i++;
-            }  
+    // check the current element if n or p is pressed
+    if(e.target.getAttribute("data-slide") == "n") {
+        if(i == data.length-1) {
+            i = 0;
         } else {
-            if(i == 0) {
-                i = images.length-1;
-            } else {
-                i--;
-            }  
-        }
+            i++;
+        }  
+    } else if (e.target.getAttribute("data-slide") == "p"){
+        if(i == 0) {
+            i = data.length-1;
+        } else {
+            i--;
+        }  
+    }
+    // set a timeout, same time as the fade animation
+    setTimeout(() => {
+        /* call the buttons color function to change btn colors and then the fade out for 
+        the current elemnent removing the fadein*/
         buttonsColor();
         value.classList.add("fadeIn");
         textSection.classList.add("fadeleftin");
         textSection.classList.remove("fadeleftout");
         value.classList.remove("fadeOut");
-        text(images[i]);
-        if(price.style.color == "orange" && btnRecipe.style.backgroundColor == "orange" && window.getComputedStyle(background).getPropertyValue("background-color") == "rgb(255, 238, 222)") {
-            price.style.color = "green";
-            btnRecipe.style.backgroundColor = "green";
-            background.style.backgroundColor = "green";
+        // change alse the price, title, recipe text calling the text function
+        text(data[i]);
+        // changing the price, buttons and background color of the half circle
+        
+        if(price.style.color == "rgb(255, 146, 44)" && btnRecipe.style.backgroundColor == "rgb(255, 146, 44)" && window.getComputedStyle(background).getPropertyValue("background-color") == "rgb(255, 238, 222)") {
+            styleColor("#54BF29");
+            background.style.backgroundColor = "#EAFFE2";
         } else {
-            price.style.color = "orange";
-            btnRecipe.style.backgroundColor = "orange";
-            background.style.backgroundColor ="rgb(255, 238, 222)";
+            styleColor("#FF922C");
+            background.style.backgroundColor ="#FFEEDE";
         }
     },300);
-    value.src = images[i].bigImages;
+    // assign to the current bigdishes the relative next or prev BigDish based on the i value
+    value.src = data[i].bigImages;
     wheelDish.style.transform = `rotate(${rotate}deg)`;
 }
 
 
 // rotation of the circle after the click of the button
-function rotation(event) {
+function rotationNext(event) {
     rotationDegree += 36;
+    // call set animation function above passing bigDishes (the div), the event and the rotation
     setAnimation(bigDishes, event, rotationDegree);
 }
  
-function prev(event) {
+function rotationPrev(event) {
     rotationDegree -= 36;
     setAnimation(bigDishes, event, rotationDegree);
 }
@@ -217,6 +230,7 @@ function text (val) {
 function buttonsColor () {
     let btn = Array.from(buttons);
     btn.forEach(function(value) {
+        // change the buttons after click
         if(value.getAttribute("data-color") == "O") {
             value.style.backgroundImage = `url(${buttonGreen})`
             value.removeAttribute("data-color");
@@ -225,5 +239,10 @@ function buttonsColor () {
             value.setAttribute("data-color", "O");
         }
         
-    })
+    });
+}
+
+function styleColor(color) {
+    price.style.color = color;
+    btnRecipe.style.backgroundColor = color;
 }
