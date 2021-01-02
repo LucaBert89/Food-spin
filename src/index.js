@@ -32,13 +32,17 @@ const btnNext = document.querySelector(".wheel-container__button-next");
 const btnprev = document.querySelector(".wheel-container__button-prev");
 const textSection = document.querySelector(".recipe-section");
 
+// left side of the website with price and repice
 let price = document.querySelector(".recipe-section__price");
 let recipeTitle = document.querySelector(".recipe-section__title");
 let recipe = document.querySelector(".recipe-section__text");
 let btnRecipe = document.querySelector(".recipe-section__btn");
 const background = document.querySelector(".background");
+
+// bigDishes images created
 let bigDishes = document.createElement("img");
-bigDishes.classList.add("center-img");
+bigDishes.classList.add("center-img");  
+
 // the width of the wheel and the radius
 let circleWidth = window.getComputedStyle(wheelDish).getPropertyValue("width");
 let radius = parseInt(circleWidth) /2;
@@ -130,7 +134,7 @@ const data = [
 //drawing the wheel taking as degree Position of the first circle at 85 degrees
     (function () {
         let degreePosition = -85;
-        
+    
         // for each element of the array create a small dish inside the wheel taking the small dish image inside the array
         data.forEach(function(value ,index) {
             let smallDishes = document.createElement("div");
