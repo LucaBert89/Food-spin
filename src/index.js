@@ -138,7 +138,7 @@ const data = [
         // for each element of the array create a small dish inside the wheel taking the small dish image inside the array
         data.forEach(function(value ,index) {
             let smallDishes = document.createElement("div");
-            smallDishes.classList.add("child");
+            smallDishes.classList.add("smallImage");
             smallDishes.style.backgroundImage = value.smallImages;
             // give to the dish the degree position and translate as the radius to set it on the wheel
             smallDishes.style.transform = `rotate(${degreePosition}deg) translate(${radius}px)`;
