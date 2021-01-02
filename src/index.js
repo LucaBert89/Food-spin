@@ -125,11 +125,10 @@ const data = [
             "bigImages": `${bigDish9}`,
             "smallImages": `url(${smallDish9})`
         }
-    ]
+    ];
 
 //drawing the wheel taking as degree Position of the first circle at 85 degrees
-    function draw () {
-        console.log(i);
+    (function () {
         let degreePosition = -85;
         
         // for each element of the array create a small dish inside the wheel taking the small dish image inside the array
@@ -152,12 +151,8 @@ const data = [
         }
         )
         // give to the buttons the right image as background
-        for(let j = 0; j<buttons.length; j++) {
-            buttons[j].style.backgroundImage = `url(${buttonOrange})`;
-        }
-    }
-
-    draw();
+        Array.from(buttons).forEach(element => {element.style.backgroundImage = `url(${buttonOrange})`;})
+    })();
 
 
     
