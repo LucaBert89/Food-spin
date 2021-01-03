@@ -40,7 +40,7 @@ module.exports = {
             // video
           // images asset/resouce: take all the images and put them to destination folder images
           { 
-            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            test: /\.(png|svg|jpg|jpeg|webp)$/i,
             type:"asset/resource",
             generator: {
               filename: 'images/[name].[ext]'
