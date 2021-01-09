@@ -48,6 +48,19 @@ module.exports = {
               filename: 'images/[name].[ext]'
             }
           },
+          { test: /\.(png|svg|jpg|gif|webm|mp4)$/,
+            use: [
+            {
+              loader: 'file-loader',
+              options: {
+                esModule: false,
+                name: "[name].[ext]",
+                outputPath: "images/",
+                publicPath: "images/",
+              } 
+            }
+            ]
+          }
         ]
     },
     plugins: [
