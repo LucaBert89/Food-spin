@@ -31,13 +31,12 @@ export function setAnimation(value, e, rotate) {
     }
     // set a timeout, same time as the fade animation
     setTimeout(() => {
-        /* call the buttons color function to change btn colors and then the fade out for 
-        the current elemnent removing the fadein*/
+        /* call the buttons color function to change btn colors */
         buttonsColor();
+
+       /* and then remove the fade out for the current element adding fade in for the next*/
         value.classList.add("fadeIn");
         textSection.classList.add("fadeleftin");
-        textSection.classList.remove("fadeleftout");
-        value.classList.remove("fadeOut");
         // change alse the price, title, recipe text calling the text function
         text(data[i]);
         // changing the price, buttons and background color of the half circle

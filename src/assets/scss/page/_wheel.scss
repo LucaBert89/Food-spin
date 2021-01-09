@@ -85,6 +85,7 @@
 	display:none;
 }
 
+// wheel animation
 .fadeOut {
 	animation: fade ease-out .3s;
 }
@@ -93,6 +94,30 @@
 	animation: fadein ease-in .3s;
 }
 
+
+  @keyframes fade {
+	0% {
+		transform: scale(1) rotate(0deg);
+		opacity: 1;
+	}
+    100% {
+		opacity: 0.2;
+		transform: scale(0.6) rotate(-40deg);	
+	}
+  }
+
+  @keyframes fadein {
+	0% {
+		transform: scale(0.6) rotate(40deg);
+		opacity: 0.4;
+	}
+    100% {
+		transform: scale(1) rotate(0deg);
+		opacity:1;
+    }
+  }
+
+// recipe animation
 .fadeleftout {
   animation: fadeleft ease-out .3s;
   transform-origin: left;
@@ -125,27 +150,6 @@
 	}
 }
 
-  @keyframes fade {
-	0% {
-		transform: scale(1) rotate(0deg);
-		opacity: 1;
-	}
-    100% {
-		opacity: 0.2;
-		transform: scale(0.6) rotate(-40deg);	
-	}
-  }
-
-  @keyframes fadein {
-	0% {
-		transform: scale(0.6) rotate(40deg);
-		opacity: 0.4;
-	}
-    100% {
-		transform: scale(1) rotate(0deg);
-		opacity:1;
-    }
-  }
 
 
 .smallImage img {
