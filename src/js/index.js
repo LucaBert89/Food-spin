@@ -1,4 +1,6 @@
 import "../main.scss";
+import image from "../assets/images/image-preview.png";
+
 export let bigDishes = document.createElement("img");
 let rotationDegree = 0;
 
