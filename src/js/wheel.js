@@ -1,3 +1,8 @@
+import {data} from "./data.js"; 
+import buttonOrange from "../assets/images/buttons/btnOrange.svg"; 
+import {bigDishes} from "./index.js";
+
+
 export const buttons = document.querySelector(".wheel-container__buttons").children;
 export const wheelDish = document.querySelector(".wheel-container__wheel");
 const center = document.querySelector(".wheel-container__wheel-pivot");
@@ -8,9 +13,6 @@ const recipeTitle = document.querySelector(".recipe-section__title");
 const recipe = document.querySelector(".recipe-section__text");
 export const btnRecipe = document.querySelector(".recipe-section__btn");
 
-import {data} from "./data.js"; 
-import buttonOrange from "../assets/images/buttons/btnOrange.svg"; 
-import {bigDishes} from "./index.js";
 
 export function wheelDraw () {
       // the width of the wheel and the radius
