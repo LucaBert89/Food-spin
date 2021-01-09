@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -48,25 +49,20 @@ module.exports = {
               filename: 'images/[name].[ext]'
             }
           },
-          { test: /\.(png|svg|jpg|gif|webm|mp4)$/,
-            use: [
-            {
-              loader: 'file-loader',
-              options: {
-                esModule: false,
-                name: "[name].[ext]",
-                outputPath: "images/",
-                publicPath: "images/",
-              } 
-            }
-            ]
-          }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
         favicon: 'src/assets/images/favicon/favicon-logo.svg',
-        template: path.resolve(__dirname, "src", "index.html")
+        template: path.resolve(__dirname, "src", "index.html"),
+        }),
+        new CopyPlugin({
+          patterns: [
+            {
+              from: path.resolve(__dirname, "src", "assets","images", "imagePreview", "image-preview.png"),
+              to: "images"
+            }
+          ],
         }),
         new MiniCssExtractPlugin({
             filename: "style.css"
