@@ -1,7 +1,7 @@
 import {data} from "./data.js";
-import buttonGreen from "../assets/images/buttons/btnGreen.svg"; 
+import buttonGreen from "../assets/images/buttons/btnGreen.webp"; 
 import {buttons, wheelDish, price, btnRecipe} from "./wheel.js";
-import buttonOrange from "../assets/images/buttons/btnOrange.svg"; 
+import buttonOrange from "../assets/images/buttons/btnOrange.webp"; 
 import {text} from "./wheel.js";
 
 const textSection = document.querySelector(".recipe-section");

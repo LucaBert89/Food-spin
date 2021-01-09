@@ -4,8 +4,8 @@
   height: 1177px;
   border-radius:50%;
   position:fixed;
-  bottom:25%;
-  left:20%;
+  top:-720px;
+  left:300px;
   display:flex;
   align-items: flex-end;
   z-index:-1;
@@ -41,7 +41,7 @@
         transform: rotate(0deg);
         transition: transform 0.7s linear;
         top:80px;
-        left:170px;
+        right:-200px;
     }
     &__buttons {
         position:absolute;
@@ -54,7 +54,7 @@
         height:50px;
         width:80px;
         display:inline-block;
-        left:650px;
+        left:680px;
     }
     &__button-prev {
         position: absolute;
@@ -62,7 +62,7 @@
         height:50px;
         width:80px;
         display:inline-block;
-        left:100px;
+        left:130px;
     }
 }
 

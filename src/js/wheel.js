@@ -1,5 +1,5 @@
 import {data} from "./data.js"; 
-import buttonOrange from "../assets/images/buttons/btnOrange.svg"; 
+import buttonOrange from "../assets/images/buttons/btnOrange.webp"; 
 import {bigDishes} from "./index.js";
 
 
