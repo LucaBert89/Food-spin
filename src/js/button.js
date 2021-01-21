@@ -1,6 +1,9 @@
 import "../main.scss";
 
 export let bigDishes = document.createElement("img");
+import {wheelDraw} from "./wheel.js";
+wheelDraw();
+import {setAnimation} from "./animation.js";
 let rotationDegree = 0;
 
 (function init() {
@@ -11,9 +14,7 @@ let rotationDegree = 0;
     btnprev.addEventListener("click", rotationPrev);
 })();
 
-import {wheelDraw} from "./wheel.js";
-wheelDraw();
-import {setAnimation} from "./animation.js";
+
 
 // rotation of the circle after the click of the button
 function rotationNext(event) {

@@ -3,9 +3,9 @@
   width:1177px;
   height: 1177px;
   border-radius:50%;
-  position:fixed;
-  top:-720px;
-  left:300px;
+  position: absolute;;
+  top:-800px;
+  left:-260px;
   display:flex;
   align-items: flex-end;
   z-index:-1;
@@ -16,7 +16,6 @@
 
 .wheel-container {
     position: relative;
-    overflow:hidden;
     &__wheel {
         position: relative;
         width: 560px;
@@ -29,7 +28,7 @@
         display:flex;
         align-items: center;
         justify-content: center;
-        top:300px;
+        top:700px;
     }
     &__wheel-pivot {
         width:500px;
@@ -41,7 +40,7 @@
         transform: rotate(0deg);
         transition: transform 0.7s linear;
         top:80px;
-        right:-200px;
+        right:-100px;
     }
     &__buttons {
         position:absolute;
@@ -54,7 +53,7 @@
         height:50px;
         width:80px;
         display:inline-block;
-        left:680px;
+        left:580px;
     }
     &__button-prev {
         position: absolute;
@@ -62,7 +61,7 @@
         height:50px;
         width:80px;
         display:inline-block;
-        left:130px;
+        left:0px;
     }
 }
 

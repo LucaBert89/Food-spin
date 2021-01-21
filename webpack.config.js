@@ -5,7 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   devtool: 'eval-source-map',
-  entry: "./src/js/index.js",
+  entry: "./src/js/button.js",
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),

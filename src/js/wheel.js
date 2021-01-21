@@ -1,6 +1,6 @@
 import {data} from "./data.js"; 
 import buttonOrange from "../assets/images/buttons/btnOrange.webp"; 
-import {bigDishes} from "./index.js";
+import {bigDishes} from "./button.js";
 
 
 export const buttons = document.querySelector(".wheel-container__buttons").children;
